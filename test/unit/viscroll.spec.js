@@ -21,8 +21,8 @@ describe('viscroll directive test', () => {
 
         Vue.use(viscroll)
         let a = new Vue(com).$mount();
-        // console.log(a.$options.components);
-        expect(true).toEqual(true);
+        console.log(a);
+        // expect(true).toEqual(true);
     })
 });
     
