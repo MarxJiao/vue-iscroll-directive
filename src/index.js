@@ -48,4 +48,4 @@ const VIScroll = {
     }
 }
 
-export default VIScroll;
+module.exports = VIScroll;
