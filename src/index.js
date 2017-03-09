@@ -31,9 +31,7 @@ const VIScroll = {
                 vnode.scroll = oldVnode.scroll;
 
                 // 使用settimeout让refresh跳到事件流结尾，保证refresh时数据已经更新完毕
-                setTimeout(() => {
-                    vnode.scroll.refresh();
-                }, 0)
+                vnode.scroll.refresh();
             },
             unbind: function (el, binding, vnode, oldVnode) {
 
