@@ -1,6 +1,6 @@
 {
   "name": "viscroll",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "vue iscroll 指令",
   "main": "src/index.js",
   "scripts": {
