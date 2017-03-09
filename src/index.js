@@ -4,12 +4,12 @@
  * @date 2016/12/03
  */
 
-import IScroll from 'iscroll'
+var IScroll =  require('iscroll');
 
 const VIScroll = {
-    install(Vue, options) {
+    install: function (Vue, options) {
         Vue.directive('iscroll', {
-            bind(el, binding, vnode, oldVnode) {
+            inserted: function (el, binding, vnode, oldVnode) {
 
                 // 判断输入参数
                 let vtype = binding.value ? [].toString.call(binding.value) : undefined;
@@ -25,17 +25,15 @@ const VIScroll = {
                 // 使用vnode绑定iscroll是为了让iscroll对象能够夸状态传递，避免iscroll重复建立
                 vnode.scroll = new IScroll(el, iscrollOptions);
             },
-            update(el, binding, vnode, oldVnode) {
+            componentUpdated: function (el, binding, vnode, oldVnode) {
 
                 // 将scroll绑定到新的vnode上
                 vnode.scroll = oldVnode.scroll;
 
                 // 使用settimeout让refresh跳到事件流结尾，保证refresh时数据已经更新完毕
-                setTimeout(() => {
-                    vnode.scroll.refresh();
-                }, 0)
+                vnode.scroll.refresh();
             },
-            unbind(el, binding, vnode, oldVnode) {
+            unbind: function (el, binding, vnode, oldVnode) {
 
                 /**
                  * 解除绑定时要把iscroll销毁
@@ -48,4 +46,4 @@ const VIScroll = {
     }
 }
 
-export default VIScroll;
+module.exports = VIScroll;
