@@ -1,10 +1,11 @@
 {
   "name": "viscroll",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vue iscroll 指令",
-  "main": "src/index.js",
+  "main": "dist/viscroll.min.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "build": "uglifyjs ./src/index.js -c -m -o ./dist/viscroll.min.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack": "^1.8.1",
+    "uglify-js": "^2.6.2",
     "vue-loader": "^10.0.2",
     "vue-template-compiler": "^2.1.8",
     "webpack": "^1.14.0",

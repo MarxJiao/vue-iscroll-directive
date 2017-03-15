@@ -6,19 +6,19 @@
 
 var IScroll =  require('iscroll');
 
-const VIScroll = {
+var VIScroll = {
     install: function (Vue, options) {
         Vue.directive('iscroll', {
             inserted: function (el, binding, vnode, oldVnode) {
 
                 // 判断输入参数
-                let vtype = binding.value ? [].toString.call(binding.value) : undefined;
+                var vtype = binding.value ? [].toString.call(binding.value) : undefined;
 
                 // 设置iscorll属性的参数
-                let iscrollOptions  = vtype === '[object Object]' ? binding.value : options;
+                var iscrollOptions  = vtype === '[object Object]' ? binding.value : options;
 
                 // 阻止touchmove默认事件
-                el.addEventListener('touchmove', event => {
+                el.addEventListener('touchmove', function (event) {
                     event.preventDefault();
                 })
 
