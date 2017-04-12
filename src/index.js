@@ -17,11 +17,6 @@ var VIScroll = {
                 // 设置iscorll属性的参数
                 var iscrollOptions  = vtype === '[object Object]' ? binding.value : options;
 
-                // 阻止touchmove默认事件
-                el.addEventListener('touchmove', function (event) {
-                    event.preventDefault();
-                })
-
                 // 使用vnode绑定iscroll是为了让iscroll对象能够夸状态传递，避免iscroll重复建立
                 vnode.scroll = new IScroll(el, iscrollOptions);
             },
