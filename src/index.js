@@ -10,15 +10,27 @@ var VIScroll = {
     install: function (Vue, options) {
         Vue.directive('iscroll', {
             inserted: function (el, binding, vnode, oldVnode) {
-
+                var callBack;
+                var iscrollOptions = options;
                 // 判断输入参数
                 var vtype = binding.value ? [].toString.call(binding.value) : undefined;
-
-                // 设置iscorll属性的参数
-                var iscrollOptions  = vtype === '[object Object]' ? binding.value : options;
+                console.log(vtype);
+                switch(vtype) {
+                    case '[object Function]':
+                        callBack = binding.value;
+                        break;
+                    case '[object Object]':
+                        iscrollOptions = binding.value;
+                    default:
+                        break;
+                }
 
                 // 使用vnode绑定iscroll是为了让iscroll对象能够夸状态传递，避免iscroll重复建立
                 vnode.scroll = new IScroll(el, iscrollOptions);
+
+                // 如果指令传递函数进来，把iscroll实例传递出去
+                if (callBack) callBack(vnode.scroll);
+
             },
             componentUpdated: function (el, binding, vnode, oldVnode) {
 
