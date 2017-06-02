@@ -25,6 +25,11 @@ Use this directive in the vue components
     <div v-iscroll="iscrollConf">
         <!-- content -->
     </div>
+
+    <!-- use a fonction to get the instance of Iscroll -->
+    <div v-iscroll=getIscroll>
+        <!-- content -->
+    </div>
 </template>
 
 <script>
@@ -52,6 +57,17 @@ export {
                 bounce: false,
                 disableTouch: true
             }
+        }
+    },
+    methods: {
+
+        /**
+         * get the instance of Iscroll
+         *
+         * @param {Object} iscroll A instance of Iscroll
+         */
+        getIscroll(iscroll) {
+            // do something with iscroll instance
         }
     }
 }
