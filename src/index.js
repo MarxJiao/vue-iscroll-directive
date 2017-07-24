@@ -14,7 +14,6 @@ var VIScroll = {
                 var iscrollOptions = options;
                 // 判断输入参数
                 var vtype = binding.value ? [].toString.call(binding.value) : undefined;
-                console.log(vtype);
                 switch(vtype) {
                     case '[object Function]':
                         callBack = binding.value;
