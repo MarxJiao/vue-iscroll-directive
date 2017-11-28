@@ -2,6 +2,12 @@
 
 An iscroll directive for Vue
 
+# DEMO
+
+online demo: [https://marxjiao.com/viscroll-demo/](https://marxjiao.com/viscroll-demo/)
+
+code: [https://github.com/MarxJiao/viscroll-demo](https://github.com/MarxJiao/viscroll-demo)
+
 # Install
 
 ```shell
